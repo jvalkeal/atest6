@@ -5,5 +5,19 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - uses: jvalkeal/setup-maven@v1
+      with:
+        maven-version: 3.6.3
     - run: |
-        echo hi1
+        mvn clean package
+    - name: Publish Test Report
+      uses: mikepenz/action-junit-report@v2
+      with:
+        report_paths: '**/target/surefire-reports/TEST-*.xml'
+        token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
