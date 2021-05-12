@@ -20,7 +20,7 @@ jobs:
       with:
         path: |
           ~/.m2/repository
-          !~/.m2/repository/**/*SNAPSHOT/*
+          !~/.m2/repository/**/*SNAPSHOT/**
         key: maven-test
         restore-keys: |
           maven-test
