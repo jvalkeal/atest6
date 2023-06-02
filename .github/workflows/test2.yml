@@ -1,6 +1,6 @@
 name: Test2
 on:
-  check_run:
+  workflow_dispatch:
 jobs:
   one:
     runs-on: ubuntu-latest
