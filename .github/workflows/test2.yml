@@ -34,4 +34,9 @@ jobs:
       run: echo "$MATRIX_CONTEXT"
     - name: Home
       shell: bash
-      run: echo "$HOME"
+      run: |
+        echo "$HOME"
+        ls $HOME
+        mkdir $HOME/.gradle
+        echo 'foo=bar' >> $HOME/.gradle/gradle.properties
+        cat $HOME/.gradle/gradle.properties
