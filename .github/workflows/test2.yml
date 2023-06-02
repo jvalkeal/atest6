@@ -3,7 +3,9 @@ on:
   workflow_dispatch:
 jobs:
   one:
-    runs-on: ubuntu-latest
+    strategy:
+      os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
     - name: Dump GitHub context
       env:
@@ -29,3 +31,6 @@ jobs:
       env:
         MATRIX_CONTEXT: ${{ toJSON(matrix) }}
       run: echo "$MATRIX_CONTEXT"
+    - name: Home
+      shell: bash
+      run: echo "$HOME"
