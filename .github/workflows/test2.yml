@@ -37,6 +37,6 @@ jobs:
       run: |
         echo "$HOME"
         ls $HOME
-        mkdir $HOME/.gradle
+        mkdir -p $HOME/.gradle
         echo 'foo=bar' >> $HOME/.gradle/gradle.properties
         cat $HOME/.gradle/gradle.properties
